@@ -1,0 +1,117 @@
+1. **Object life cycle**
+   - **Answer:** The object life cycle refers to the creation, usage, and destruction of objects in a program. In Java, objects are created using constructors, used during their lifespan, and eventually garbage collected when no longer referenced.
+
+2. **IOC Container**
+   - **Answer:** Inversion of Control (IoC) Container manages the dependencies between various components in a system. It is responsible for creating, assembling, and managing objects and their lifecycle. Examples include the Spring IoC container.
+
+3. **Bean life cycle? and Scope of Bean?**
+   - **Answer:** The Spring bean life cycle involves the instantiation, initialization, usage, and destruction of a bean. The scope of a bean defines its lifecycle, and common scopes include Singleton, Prototype, Request, Session, and Global Session.
+
+4. **What is annotation in Java and how is it internally working? Where is the source code of the annotation?**
+   - **Answer:** Annotations in Java provide metadata about the program. They are processed at compile-time or runtime. The source code for built-in annotations is typically found in the `java.lang.annotation` package.
+
+5. **What are the HTTP methods? and what is the difference between them?**
+   - **Answer:** HTTP methods include GET, POST, PUT, PATCH, DELETE, etc. They define the type of operation to be performed. GET is for retrieving data, POST for submitting data, PUT for updating data, PATCH for partial updates, and DELETE for deleting data.
+
+6. **Can we use a post request to get the value instead of get?**
+   - **Answer:** Yes, but it's not a recommended practice. POST requests are designed for submitting data to be processed, while GET requests are meant for retrieving data. Using POST for retrieving data goes against RESTful principles.
+
+7. **What is idempotent?**
+   - **Answer:** An operation is idempotent if applying it multiple times has the same effect as applying it once. In the context of HTTP methods, GET, PUT, and DELETE are considered idempotent, while POST is not.
+
+8. **What is @RequestMapping?**
+   - **Answer:** `@RequestMapping` is used in Spring to map web requests onto specific handler methods. It can be applied at the class or method level, and it allows customization of the request mapping, including the URL, HTTP method, and headers.
+
+9. **What is @RestController?**
+   - **Answer:** `@RestController` is a specialized version of `@Controller` in Spring that is used to define RESTful web services. It combines `@Controller` and `@ResponseBody`, indicating that the return values from methods should be directly serialized into the response body.
+
+10. **What is @Controller?**
+    - **Answer:** `@Controller` is a Spring annotation that identifies a class as a controller in a Spring MVC application. It is used to handle HTTP requests, typically returning a view or data to be rendered.
+
+11. **What is @ResponseBody?**
+    - **Answer:** `@ResponseBody` is used in Spring MVC to indicate that the return value of a method should be directly written to the response body. It is commonly used in RESTful controllers to return data in JSON or XML format.
+
+12. **What is @Bean, @Value?**
+    - **Answer:** `@Bean` is used in Spring to declare a bean. It is usually applied to methods within a configuration class. `@Value` is used to inject values from properties files or environment variables into Spring beans.
+
+13. **What is @Configuration, @AutoConfiguration?**
+    - **Answer:** `@Configuration` is used to indicate that a class provides one or more bean definitions. `@AutoConfiguration` is part of Spring Boot's automatic configuration mechanism, where it automatically configures beans based on the project's dependencies.
+
+14. **What is @Autowired: (Method level)**
+    - **Answer:** `@Autowired` is used at the method level in Spring to automatically inject dependencies into the method parameters. It eliminates the need for explicit getter and setter methods.
+
+15. **What is @PostConstruct and @PreDestroy?**
+    - **Answer:** `@PostConstruct` is used to annotate a method that should be executed after a bean has been initialized. `@PreDestroy` is used to annotate a method that should be executed before a bean is destroyed.
+
+16. **This annotation is applied to the fields, setter methods, and constructors. What is the scope of a bean?**
+    - **Answer:** This statement is incomplete. It seems to be referring to the `@Autowired` annotation, which can be applied to fields, setter methods, and constructors. The scope of a bean defines its lifecycle, and common scopes include Singleton, Prototype, Request, Session, and Global Session.
+
+17. **Can we register two beans? What error will we get when two beans are registered? How to handle two beans?**
+    - **Answer:** Yes, multiple beans can be registered in a Spring application. If conflicts arise (e.g., two beans of the same type), a `NoUniqueBeanDefinitionException` may occur. To handle this, you can use qualifiers or `@Primary` annotation to specify the primary bean.
+
+18. **How to send a PDF to the server?**
+    - **Answer:** You can send a PDF to the server by creating a form with a file input field on the client side, and then using a POST request to submit the form with the PDF file. On the server side, you can handle the file using a controller and save it or process it as needed.
+
+19. **How to send the username and password?**
+    - **Answer:** Username and password can be sent to the server using a secure method such as HTTPS and including them in the request body for a POST request, or as part of the URL for a GET request. For enhanced security, consider using authentication mechanisms like OAuth2 or JWT.
+
+20. **How to use the header?**
+    - **Answer:** Headers can be used in HTTP requests to provide additional information. In Spring, you can access headers in a controller method using the `@RequestHeader` annotation, or you can use the `RestTemplate` or `HttpClient` to set headers programmatically.
+
+21. **How to connect with the DB using Hibernate?**
+    - **Answer:** To connect to a database using Hibernate in a Spring application, you need to configure the database properties in the `application.properties` file, define entity classes, create a `SessionFactory` bean, and use Hibernate APIs or Spring Data JPA repositories for database operations.
+
+22. **Explain MVC. Can we write repository (DB) code in the controller?**
+    - **Answer:** MVC (Model-View-Controller) is a design pattern where the application is divided into three components: Model (data and business logic), View (presentation layer), and Controller (handles user input and manages flow). While it is technically possible to write repository (DB) code in the controller, it is not recommended for better separation of concerns. A cleaner approach is to use a service layer or Spring Data JPA repositories for handling database operations.
+
+23. **If we send data from one microservice to another microservice and in the mid, we lost data, how to recover that, and what will be your strategy?**
+    - **Answer:** To recover lost data between microservices, strategies include implementing retries with
+
+ exponential backoff, using idempotent operations, ensuring transactions across microservices using distributed transactions (if feasible), and implementing a message broker with persistence for reliable messaging.
+
+24. **MVC ALL API Annotation**
+    - **Answer:** Common MVC annotations include `@Controller`, `@RestController`, `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, `@PathVariable`, `@RequestParam`, and `@RequestBody`.
+
+25. **Dependency Injection**
+    - **Answer:** Dependency Injection is a design pattern where the dependencies of a class are provided externally rather than created within the class. In Spring, this is achieved using `@Autowired` annotation, constructor injection, or setter injection.
+
+26. **REST Controller vs @Controller vs Request mapping**
+    - **Answer:** `@RestController` is specialized for RESTful services, combining `@Controller` and `@ResponseBody`. `@Controller` is a generic controller for web applications. `@RequestMapping` is used to map URLs to methods in Spring controllers.
+
+27. **Get vs Patch**
+    - **Answer:** `GET` is used to retrieve data from the server, and it is idempotent. `PATCH` is used to apply partial modifications to a resource, and it is also idempotent. The main difference is in the extent of the modification.
+
+28. **Get vs Put**
+    - **Answer:** `GET` is used to retrieve data from the server, and it is idempotent. `PUT` is used to update a resource or create a new resource if it doesn't exist. `PUT` is not idempotent if used for creation.
+
+29. **Get vs Post**
+    - **Answer:** `GET` is used to retrieve data from the server and is idempotent. `POST` is used to submit data to be processed to a specified resource and is not idempotent. The main difference is in the purpose and idempotence.
+
+30. **Scope Of Bean**
+    - **Answer:** The scope of a bean in Spring defines its lifecycle. Common scopes include `Singleton` (one instance per Spring container), `Prototype` (new instance for each request), `Request` (new instance for each HTTP request), `Session` (new instance for each HTTP session), and `Global Session` (new instance for each global HTTP session).
+
+31. **Explain Rest API**
+    - **Answer:** REST (Representational State Transfer) API is an architectural style for designing networked applications. It uses standard HTTP methods (GET, POST, PUT, DELETE) for communication and is stateless. Resources are represented and manipulated using standard conventions, such as URLs.
+
+32. **Maven vs Gradle**
+    - **Answer:** Maven and Gradle are build automation tools. Maven uses XML for configuration, while Gradle uses Groovy or Kotlin DSL. Gradle is considered more flexible and expressive, while Maven is known for convention over configuration.
+
+33. **Bean life cycle**
+    - **Answer:** The Spring bean life cycle consists of instantiation, population of properties, bean initialization, business logic execution, and destruction. Callback methods like `@PostConstruct` and `@PreDestroy` can be used to customize the life cycle.
+
+34. **@PropertySource vs @Value annotation**
+    - **Answer:** `@PropertySource` is used to specify the properties file location. `@Value` is used to inject values from properties files or environment variables into Spring beans.
+
+35. **@Qualifier vs @Primary Annotation**
+    - **Answer:** `@Qualifier` is used to specify the bean to be injected when multiple beans of the same type exist. `@Primary` is used to indicate the primary bean to be injected if multiple beans of the same type exist.
+
+36. **@SpringBootApplication Annotation**
+    - **Answer:** `@SpringBootApplication` is a convenience annotation in Spring Boot that combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. It is often placed on the main class to bootstrap a Spring Boot application.
+
+37. **Interceptor in Spring Boot**
+    - **Answer:** Interceptors in Spring Boot are used to perform operations before or after the execution of handler methods. They can be configured using `HandlerInterceptor` and are useful for tasks like logging, security, or modifying request/response.
+
+38. **Spring vs Spring Boot**
+    - **Answer:** Spring is a comprehensive framework for building enterprise Java applications, providing various modules for different concerns. Spring Boot is an opinionated framework built on top of Spring, offering conventions and defaults to simplify the development of production-ready applications.
+
+These answers provide a concise overview of each topic. Feel free to ask if you need further clarification on any point.

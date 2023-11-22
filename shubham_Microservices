@@ -1,0 +1,32 @@
+1. **How to integrate microservices?**
+   - **Answer:** Microservices can be integrated using various techniques such as API gateways, messaging protocols (like Kafka or RabbitMQ), or direct HTTP/REST calls. Service meshes (e.g., Istio) can also help manage communication between microservices.
+
+2. **How do two microservices communicate with each other?**
+   - **Answer:** Microservices can communicate through synchronous HTTP/REST APIs, asynchronous messaging systems (like Kafka or RabbitMQ), or gRPC. Service discovery mechanisms help in locating and connecting to other microservices.
+
+3. **Authentication vs Authorization**
+   - **Answer:** Authentication is the process of verifying the identity of a user or system, while authorization involves granting access rights to authenticated users. Authentication confirms "who you are," and authorization determines "what you can do."
+
+4. **JWT Token**
+   - **Answer:** JWT (JSON Web Token) is a compact, URL-safe means of representing claims to be transferred between two parties. It's commonly used for authentication and contains encoded information about the user, expiration time, and digital signature for verification.
+
+5. **OAuth2**
+   - **Answer:** OAuth2 is an authorization framework that enables a third-party application to obtain limited access to a user's account on an HTTP service. It is commonly used for delegated authentication and authorization in microservices architectures.
+
+6. **How to secure Microservices?**
+   - **Answer:** Microservices security involves measures such as using HTTPS/SSL for communication, implementing proper authentication and authorization mechanisms, securing APIs with tokens (JWT or OAuth2), and regularly updating dependencies and libraries to patch security vulnerabilities.
+
+7. **Advantages and Disadvantages of Microservices.**
+   - **Answer:**
+     - **Advantages:**
+       - Scalability, independent deployment, technology heterogeneity, fault isolation, and ease of maintenance.
+     - **Disadvantages:**
+       - Increased complexity, distributed system challenges, potential performance overhead, and increased resource consumption.
+
+8. **What are the different ways to call a third-party API?**
+   - **Answer:** Third-party APIs can be called using synchronous HTTP requests (RESTful calls), asynchronous messaging (like message queues), or by using client libraries and SDKs provided by the API provider.
+
+9. **How to check Production Environment issues in Microservice Architecture?**
+   - **Answer:** Monitoring and observability tools play a crucial role in identifying production issues in microservices. Logging, tracing, metrics, and centralized monitoring solutions help track performance, errors, and overall health in a microservices environment. Additionally, automated testing in a production-like environment can help uncover issues before deployment.
+
+These answers provide a concise overview of each topic. Feel free to ask if you need further clarification on any point.

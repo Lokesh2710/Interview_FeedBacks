@@ -1,0 +1,222 @@
+#==> FedEx on 23-May-2023 on Monjin Interviewing platform. (first round - technical interview)
+1.Find a repeatable characters in a given String
+==>
+1.find the repeating character in an array/String - "HELLO" (bf&optimal solution both)
+
+Bruth-Force
+_________________________________________ 
+public static void main(String[] args) {
+        String str = "hellohellohellohello";
+        Set<Character> var = new HashSet<>();
+        char[] chArr = str.toCharArray();
+        boolean flag = true;
+        for (int i = 0; i < chArr.length; i++) {
+            flag = true;
+            for (int j = 0; j < chArr.length; j++) {
+                if (i != j && chArr[i] == chArr[j]) {
+                    flag = false;
+                }
+            }
+            if (!flag) {
+                var.add(chArr[i]);
+            }
+        }
+        for (Character ch : var) {
+            System.out.println(ch);
+        }
+    }
+
+optimal solution 
+____________________________________________
+public static void main(String[] args) {
+        String inputStr = "elephant";
+        boolean flag = true;
+        for (char i : inputStr.toCharArray()) {
+            //if first occurs position same as last occurs position that means only one occurence of character
+            if (inputStr.indexOf(i) != inputStr.lastIndexOf(i)) {
+                System.out.println("Repeating character is: " + i);
+                //use below two statement only when you want just first non-repeating character
+                flag = false;
+                break;
+            }
+        }
+    }
+
+2.why we are using @SprigBootApplication Annotation
+==> @SpringBootApplication is a Spring Boot annotation that simplifies and configures a Spring application. It combines multiple other annotations, enables component scanning, configures auto-configuration, and serves as the main entry point for running the application.
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class, args);
+    }
+}
+
+3.what is Agile model & How are you applying Agile in your project
+Sure! Agile is like making a cool LEGO project. Instead of planning and building everything all at once, we build it step by step. We work with friends who have different skills, like building, designing, and testing, and we talk a lot to make sure we're doing it right. We show what we've done to others, like our parents or teachers, and they give us feedback. We can change our project as we go, just like when we add new LEGO pieces to our creation. It's all about working together, making changes, and having fun while building something awesome!
+
+Scrum, one of the most well-known Agile methodologies, is characterized by specific roles (Product Owner, Scrum Master, Development Team), artifacts (Product Backlog, Sprint Backlog, Increment), and events (Sprint, Daily Scrum, Sprint Review, Sprint Retrospective). Other Agile methodologies have their own practices and variations, but they all share the core Agile principles of flexibility, collaboration, and customer focus.
+
+
+4.who is scrum master
+==>Product Owner (PO): The Product Owner is like the "customer representative." They work closely with the actual customers and users to understand their needs and priorities. The PO is responsible for creating and prioritizing the Product Backlog, a list of tasks or features to be developed, and ensuring the team works on the most valuable items first.
+
+Scrum Master: The Scrum Master is the team's coach and facilitator. They make sure the Scrum framework is followed, help the team work together effectively, and remove any obstacles that might be in the team's way. The Scrum Master is not a manager but helps the team manage itself.
+
+Development Team: The Development Team consists of the people who do the actual work. They could be software developers, designers, testers, or any other role needed to complete the project. The Development Team decides how to complete the work and creates a working piece of the project (Increment) during each Sprint.
+
+Sprint: A Sprint is a time-boxed period (usually 2-4 weeks) during which the Development Team works to complete a set of tasks from the Product Backlog. At the end of each Sprint, they should have a potentially shippable product increment.
+
+Product Backlog: The Product Backlog is a prioritized list of all the tasks or features that need to be developed. The Product Owner maintains this list, and it can change as new items are added, removed, or reprioritized.
+
+Sprint Backlog: The Sprint Backlog is a subset of tasks from the Product Backlog that the Development Team commits to completing during the current Sprint. It's like the to-do list for the Sprint.
+------------------------------------------------------------------
+
+#==> Alation on 5th Oct -23 (first round - coding test)
+1.which tree is (sum of all nodes)larger (left or write) 
+2.find the large number from the array
+3.I am {0} kirad ,{1} as a backend {2} , String[] arr = ["lokesh","working","developer"] replace the number 
+with text in string , and form
+sentence like -I am lokesh kirad ,working as a backend developer.
+4.anagram numbrers (silent -- > listen) - means phli string k  chracter use karke second string bana skata hai then its anagram numbers
+
+------------------------------------------------------------------
+#==> Innspark Solutions on 6th Oct - 23 (first round -technical interview)
+1.find the repeating character in an array/String - "HELLO" (bf&optimal solution both)
+
+Bruth-Force
+_________________________________________ 
+public static void main(String[] args) {
+        String str = "hellohellohellohello";
+        Set<Character> var = new HashSet<>();
+        char[] chArr = str.toCharArray();
+        boolean flag = true;
+        for (int i = 0; i < chArr.length; i++) {
+            flag = true;
+            for (int j = 0; j < chArr.length; j++) {
+                if (i != j && chArr[i] == chArr[j]) {
+                    flag = false;
+                }
+            }
+            if (!flag) {
+                var.add(chArr[i]);
+            }
+        }
+        for (Character ch : var) {
+            System.out.println(ch);
+        }
+    }
+
+optimal solution 
+____________________________________________
+public static void main(String[] args) {
+        String inputStr = "elephant";
+        boolean flag = true;
+        for (char i : inputStr.toCharArray()) {
+            //if first occurs position same as last occurs position that means only one occurence of character
+            if (inputStr.indexOf(i) != inputStr.lastIndexOf(i)) {
+                System.out.println("Repeating character is: " + i);
+                //use below two statement only when you want just first non-repeating character
+                flag = false;
+                break;
+            }
+        }
+    }
+
+2.check given string is palindrome or not  (bf&optimal solution both)
+3.Explain polymorphism , diff btw method overloding & overriding
+Interviewer *followUp  : Which method of parent class(suppose print("NAME") ) we want to override in base class
+1>>if that method decalred with ::public access specifier  - we can override this
+
+2.1>if that method decalred with ::private access specifier  - we can< NOT> override this OR VICE VERSA []Not allowed compilation error] 
+
+
+4.Diffrence between Primary & unique key 
+==>Key differences between primary key vs unique key
+The primary key does not store null values, whereas the unique key does. 
+A table can only have one primary key, whereas it can have multiple unique keys. The primary key does not allow you to delete or modify the data. On the other hand, a unique key does
+
+5.write SQl query to get emp_name , emp_id and dept_name
+table1 : Employee table ,10 records (emp_id(p.key),emp_name,dept_id(f.k to Department-))
+table2 : Department table ,5 records (dept_id(p.key),dept_name)
+
+----------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>> 15 nov 23 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+FedEx (Technical interview 1st round ) on 15th nov 2023 by Sagar (from FedEx)
+
+Java - 
+1.Can you tell me about JVM Memory Model
+2.Diffrence between Heap and Stack area 
+3.Diffrence between linkedList and ArrayList
+4.Conuter- que > Why ArrayList is good for retrival 
+5.How the HashMap Work in java
+6.what is contract written between the equals() and hashCode() method ?
+
+Microservices -
+1.what is microservices and why it is so famous ?
+2.How the services communicate to each other (in microservices) ?
+3.What is Apache kafka ?
+4.Design pattern in microservices , what are they?
+5.Disadvanatages of microservices ?
+
+Spring Boot-
+1.How do you create rest API in Spring Boot ?
+2.How to verify the endpoint ( you are getting expect output in correct for the request )?
+3.What do you know about Swagger ?
+
+Agile -
+1.What are benefits of using Agile ?
+2.what is the role of scrum master in Agile ?
+
+DSA Problem (10 min  only):-
+1. String str = "ABC";
+write a java program which generates all the below combination for above string 
+ABC,ACB,BCA,BAC,CAB,CBA
+package org.example;
+
+public class TestClass {
+    public static void main(String[] args) {
+
+        String str = "ABC";
+        //"E ABCD F"
+
+        for (int initial = 1 ; initial <= str.length() ; initial++){
+            char[] chArr = str.toCharArray();
+            int charPosition = initial;
+            int charPositionIndex = charPosition - 1;
+
+            char temp = chArr[charPositionIndex];
+
+            //8 shift all character to left to right
+
+            for (int i = charPositionIndex -1; i >= 0; i--) {
+               // System.out.println(" i -> " + i + "--> ");
+                chArr[i + 1] = chArr[i];
+            }
+            chArr[0] = temp;
+
+            for (char k : chArr) {
+                System.out.print(k);
+            }
+            System.out.println();
+            System.out.print(chArr[0]);
+            for(int r = chArr.length-1 ; r >= 1  ; r-- ){
+                System.out.print(chArr[r]);
+            }
+            System.out.println();
+
+        }
+    }
+}
+
+Output: 
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+

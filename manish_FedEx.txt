@@ -1,0 +1,151 @@
+1. `@SpringBootApplication` is a meta-annotation in Spring Boot that combines three annotations: `@SpringBootConfiguration`, `@EnableAutoConfiguration`, and `@ComponentScan`. 
+
+   - `@SpringBootConfiguration`: Indicates that the class provides configuration to the Spring application context.
+   - `@EnableAutoConfiguration`: Enables Spring Boot's automatic configuration based on the dependencies present in the classpath.
+   - `@ComponentScan`: Scans the specified package for Spring components like controllers, services, and repositories.
+
+2. `@RestController` is a specialization of the `@Controller` annotation in Spring. While both are used to define classes as controllers, the main difference is in the default behavior of their methods. 
+
+   - `@Controller`: Primarily used for traditional web applications where the return value of methods is interpreted as a view name.
+   - `@RestController`: Used in RESTful web services and is a combination of `@Controller` and `@ResponseBody`. It indicates that the data returned by the methods should be directly written into the response body, not interpreted as a view name.
+
+3. `PUT` and `PATCH` are HTTP methods used in RESTful APIs.
+
+   - `PUT`: Typically used to update a resource or create a new resource if it doesn't exist. When using `PUT`, the entire resource is updated.
+   - `PATCH`: Used to apply partial modifications to a resource. It is more efficient than `PUT` when you only need to update a subset of the resource.
+
+4. Spring Boot Starter dependencies are a set of convenient dependency descriptors that you can include in your application. They provide a quick way to add common dependencies to your project, making it easy to set up a project with a specific technology stack. For example, `spring-boot-starter-web` includes dependencies related to building web applications.
+
+5. To set up a Spring Boot application from scratch:
+
+   - Use a build tool like Maven or Gradle.
+   - Include the necessary dependencies, such as `spring-boot-starter`.
+   - Create a main class with the `@SpringBootApplication` annotation.
+   - Write your application logic in controllers, services, and other components.
+   - Run the application.
+
+6. Benefits of Spring Boot:
+
+   - **Simplified Configuration**: Spring Boot provides sensible defaults and requires minimal configuration, reducing boilerplate code.
+   - **Embedded Servers**: It includes embedded servers like Tomcat, eliminating the need for deploying applications to external servers.
+   - **Dependency Management**: Spring Boot simplifies dependency management by providing a set of starter dependencies for common use cases.
+   - **Production-Ready Features**: Built-in features for monitoring, health checks, and metrics make applications production-ready without additional effort.
+   - **Microservices Support**: Spring Boot is well-suited for building microservices architectures, with features like Spring Cloud for distributed systems.
+   - **Rapid Development**: With a convention-over-configuration approach, developers can focus on business logic rather than spending time on tedious setup and configuration tasks.
+   
+   
+   --------------------------- J A V A - ------------------------
+   
+   1. **Abstract Class vs Interface:**
+
+   - **Abstract Class:**
+     - Can have both abstract and concrete methods.
+     - Can have instance variables (fields).
+     - Supports constructors.
+     - Allows method visibility modifiers (public, private, protected).
+     - A class can extend only one abstract class.
+
+   - **Interface:**
+     - Only contains abstract methods (Java 8 onwards, it can also have default and static methods).
+     - Cannot have instance variables, except for constants (public static final fields).
+     - No constructors are allowed.
+     - All methods are implicitly public.
+     - A class can implement multiple interfaces.
+
+2. **Private Variables in an Interface:**
+
+   - No, interfaces cannot have private variables. Interface fields are implicitly public, static, and final (constants).
+
+3. **Final Keyword Uses:**
+
+   - **Final Variable:** The value of a final variable cannot be changed once assigned.
+   - **Final Method:** A final method cannot be overridden in subclasses.
+   - **Final Class:** A final class cannot be subclassed.
+   - **Final Parameter:** A final parameter in a method cannot be modified within the method.
+
+4. **Difference between throws and throw:**
+
+   - **throws:** Used in method signature to declare exceptions that the method might throw. It is a way of indicating that the method handles certain exceptions or delegates the responsibility to the caller.
+
+   - **throw:** Used within a method to explicitly throw an exception. It is used when an exceptional situation is encountered, and the method cannot handle it.
+
+5. **String Immutable and Mutable:**
+
+   - **Immutable:** Once a String object is created, its value cannot be changed. Any operation that appears to modify a String actually creates a new String.
+
+   - **Mutable:** Objects whose state can be changed after creation. String is immutable in Java, but classes like StringBuilder and StringBuffer are mutable.
+
+6. **Constructor Overloading and Calling from Another Constructor:**
+
+   - **Constructor Overloading:** Defining multiple constructors within a class with different parameter lists.
+
+   - **Calling from Another Constructor (using `this`):** In the constructor body, you can use `this(parameters)` to call another constructor from the same class.
+
+7. **Functional Interface:**
+
+   - An interface with a single abstract method (SAM). Introduced in Java 8 to support lambda expressions. Examples include `Runnable`, `Callable`, and `Comparator`.
+
+8. **Inheritance:**
+
+   - Mechanism in Java where a class inherits properties and behaviors (fields and methods) from another class. Supports concepts like polymorphism and code reuse.
+
+9. **Auto Boxing/Type Casting:**
+
+   - **Auto Boxing:** Automatic conversion of primitive types to their corresponding wrapper classes (e.g., int to Integer).
+
+   - **Type Casting:** Explicit conversion between different data types, either primitive or objects.
+
+10. **New Features in JDK 8:**
+
+    - Lambda Expressions
+    - Functional Interfaces
+    - Stream API
+    - Default Methods in Interfaces
+    - Method References
+    - Optional Class
+
+11. **How to Use Stream APIs:**
+
+    - Stream API allows functional-style operations on sequences of elements.
+    - Use `stream()` and `parallelStream()` methods on collections to obtain streams.
+    - Perform operations like `map`, `filter`, `reduce`, etc., to process data.
+
+12. **Lambda Functions:**
+
+    - Anonymous functions introduced in Java 8.
+    - Concise syntax for writing functional interfaces.
+    - Used primarily to define the implementation of a single abstract method.
+
+13. **ArrayList vs Arrays:**
+
+    - **ArrayList:**
+      - Dynamic size.
+      - Can grow or shrink.
+      - Supports methods for easy manipulation.
+      - Part of the Java Collections Framework.
+
+    - **Arrays:**
+      - Fixed size.
+      - Cannot change size once created.
+      - Basic data structure with direct support in the language.
+
+14. **Collections Hierarchy:**
+
+    - **Collection (Interface)**
+      - **List (Interface):** Ordered collection (e.g., ArrayList, LinkedList).
+      - **Set (Interface):** Unordered collection with no duplicates (e.g., HashSet, TreeSet).
+      - **Queue (Interface):** Collection designed for holding elements prior to processing (e.g., PriorityQueue).
+
+    - **Map (Interface):** Key-value pairs (e.g., HashMap, TreeMap).
+
+15. **Parent Class in Java and Its Functions:**
+
+    - The parent class in Java is `Object`.
+    - Functions:
+      - `toString()`: Returns a string representation of the object.
+      - `equals(Object obj)`: Indicates whether some other object is "equal to" this one.
+      - `hashCode()`: Returns a hash code value for the object.
+
+16. **HashMap: Can We Store Two Same Keys?**
+
+    - No, HashMap does not allow duplicate keys. If you try to insert a key-value pair with an existing key, the new value will overwrite the existing one.

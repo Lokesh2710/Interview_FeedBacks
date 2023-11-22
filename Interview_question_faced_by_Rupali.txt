@@ -1,0 +1,702 @@
+
+#==> Capgemini
+-----------------------------------------------------------------------------------------------------------
+Q.1)Explain @Qualifier ???
+==>By using the @Qualifier annotation, you can explicitly control which bean should be used for dependency injection when there are multiple candidates of the same type in the Spring application context. @Qualifier annotation is used with @Autowaired annotation and use to identify the object when same types of multiple objects present.
+
+
+Q.2)Diff Truncate vs Delete ??
+==> 
+TRUNCATE: It is a Data Definition Language (DDL) statement. This means it's used for structural changes to a table and can't be rolled back (in most databases). 
+1.It's used to quickly remove all rows from a table.
+2.Faster than DELETE 
+3.cannot specify a WHERE condition
+4.TRUNCATE usually does not fire triggers, and it may not enforce referential integrity constraints (foreign keys). It's typically a more brute-force operation.
+
+DELETE: It is a Data Manipulation Language (DML) statement. It's used for removing specific rows from a table based on a specified condition.
+
+Q.3) Diff  TRUNCATE vs DROP Command
+==> TRUNCATE TABLE table_name;: This command is used to quickly and efficiently remove all rows from a table while keeping the table structure intact. It's used when you want to clear the data from a table but retain the table itself.
+
+DROP TABLE table_name;: This command is used to completely delete the table, including both its structure and all of its data. It's used when you want to remove the entire table and all its contents.
+
+
+Q.4)How to delete dublicate record??
+==>>   
+    DELETE FROM your_table
+    WHERE id NOT IN (
+    SELECT MIN(id)   -- Keep only one copy of the duplicates (choose any)
+    FROM your_table
+    GROUP BY column1, column2
+	);
+
+	or 
+
+	SELECT DISTINCT column_name
+	FROM table_name;
+
+	or
+
+	SELECT column_name
+    FROM table_name
+    GROUP BY column_name;
+	
+	or 
+	
+	-- Step 3: Delete Duplicate Records
+	DELETE FROM your_table
+	WHERE (email, id) NOT IN (
+    SELECT email, MIN(id)
+    FROM your_table
+    GROUP BY email
+	);
+
+
+Q.5 )What server used in your project?? 
+==> Tomcat server , MySql Database
+
+Q.6) How to remove merge conflict???
+==>Merge conflicts occur in version control systems like Git when two or more branches have made changes to the same part of a file and the system can't automatically determine which change to accept. Resolving merge conflicts involves manually choosing which changes to keep and which to discard. Here's a step-by-step guide on how to remove merge conflicts:
+1. **Pull Changes**: Before you start, make sure your local branch is up to date. Use the following commands:
+   ```bash
+   git fetch origin
+   git checkout your_branch
+   git merge origin/your_branch
+   ```
+   This will pull the latest changes from the remote repository.
+2. **Identify Conflicts**: When you pull or merge changes, Git will identify conflicts and indicate them in the affected files. Open these files in a text editor, and you'll see conflict markers like this:
+   ```plaintext
+   <<<<<<< HEAD
+   This is your local change.
+   =======
+   This is the incoming change.
+   >>>>>>> branch_name
+   ```
+   The lines between `<<<<<<< HEAD` and `=======` are your local changes, while the lines between `=======` and `>>>>>>> branch_name` are incoming changes from another branch.
+3. **Resolve Conflicts**:
+   - Edit the file to keep the changes you want. You can choose to accept one side's changes or merge them manually.
+   - Remove the conflict markers (`<<<<<<<<<`, `=======`, `>>>>>>>`) and any unnecessary spacing.
+   - Save the file after resolving the conflict.
+4. **Add Resolved Files**: After you've edited and saved the conflicted files, stage them for commit using:
+   ```bash
+   git add conflicted_file.txt
+   ```
+   You can use `git status` to check which files are still unmerged.
+5. **Commit the Resolved Changes**:
+   ```bash
+   git commit -m "Resolved merge conflict"
+   ```
+6. **Push the Changes**:
+   ```bash
+   git push origin your_branch
+   ```
+   This will update the remote repository with your resolved changes.
+   
+7. **Cleanup** (optional): Once the conflict is resolved and the changes are pushed, you can delete the local branch you used for the conflict resolution if it's no longer needed:
+   ```bash
+   git branch -d branch_name
+   ```
+   If the branch contains changes that have not been merged elsewhere, use `-D` instead of `-d` to force deletion.
+That's it! You've successfully resolved a merge conflict in Git. Remember that communication with your team is essential during conflict resolution, especially in collaborative projects, to ensure that the changes being merged are the intended ones.
+
+
+Q.7) How to deploy code??
+==> To deploy any git branch , we can use 2 different approach
+->First Approach :- first i will checkout the branch , do the chnages , do testing
+do maven (clean,compile ,install)
+after that one JAR file will be generated , i will copy that jar and replace with JAR present on server
+
+->Second Approach :- 
+By using Jenkins , select the server , select branch , select service , confirm - that's it 
+
+Q.8) Difference between Monolithic architecture & Microservices architecture
+==>>
+Monolithic architecture: Single, large application with tight coupling. Easier to develop initially but can become complex and hard to scale and maintain as it grows.
+
+Microservices architecture: Collection of small, independent services. More complex to set up but allows for better scalability, maintainability, and flexibility in large and evolving applications.
+
+Q.9) How many Bean Scopes in Spring??
+==>In the Spring Framework, there are several bean scopes that define how Spring manages the lifecycle of a bean and controls when and how it is created and destroyed. The following are the common bean scopes in Spring:
+
+1. **Singleton**: The default scope in Spring. Only one instance of the bean is created for the entire application context. This single instance is shared by all requesting components.
+
+2. **Prototype**: A new instance of the bean is created every time it is requested. This allows for a fresh copy of the bean for each injection or lookup.
+
+3. **Request**: A new instance is created for each HTTP request in a web application. This scope is only available in the context of a web application using Spring's web framework.
+
+4. **Session**: A new instance is created for each HTTP session in a web application. Like the request scope, this is available in web applications.
+
+5. **Global Session**: Similar to the session scope, but tied to a global session that spans across multiple web applications in a portlet environment. This scope is only relevant in portlet-based applications.
+
+6. **Application**: A single instance is created for the entire lifetime of the application context. This is useful for creating beans that hold global application-level state.
+
+7. **WebSocket**: Introduced in Spring 4.0, this scope is designed for web applications using WebSocket-based communication. A new instance is created for each WebSocket session.
+
+8. **Custom Scopes**: Spring allows you to define custom bean scopes by implementing the `Scope` interface. This gives you the flexibility to create scopes tailored to your specific application needs.
+
+The choice of bean scope depends on your specific requirements. For most beans, the default singleton scope is appropriate because it allows Spring to manage the bean's lifecycle and ensure it is shared when needed. However, there are scenarios where other scopes, like prototype or request, are more suitable. It's important to choose the scope that aligns with the intended behavior of your beans and the architecture of your application.
+
+
+Q.10) what @Components Annotations & why using this??
+==>
+The `@Component` annotation in Spring is a fundamental part of the Spring Framework's component scanning mechanism and is used to declare a class as a Spring bean. When a class is annotated with `@Component`, Spring's container (ApplicationContext) automatically registers and manages the bean's lifecycle.
+Here's how it works and why you would use it:
+1. **Bean Definition**: By annotating a class with `@Component`, you're telling Spring that this class should be managed by the Spring container as a Spring bean. Spring then creates a bean definition for this class in the application context.
+2. **Automatic Scanning**: To leverage the `@Component` annotation, you need to enable component scanning in your Spring configuration. Component scanning automatically searches for classes annotated with `@Component` (or its specializations like `@Service`, `@Repository`, and `@Controller`) within specified packages and registers them as beans.
+3. **Dependency Injection**: Once a class is defined as a Spring bean, it can be injected into other beans, and you can use dependency injection to wire beans together. This promotes the Inversion of Control (IoC) principle, where control over the creation and management of objects is handed over to the Spring container.
+4. **Simplifies Configuration**: Using `@Component` helps simplify your Spring configuration. You don't need to define the bean explicitly in XML or Java configuration. This makes your code more concise and reduces configuration overhead.
+Here's an example of using `@Component`:
+```java
+@Component
+public class MyService {
+    // Class implementation
+}
+```
+In this example, `MyService` is a Spring bean managed by the Spring container. You can then inject this bean into other components using constructor or setter injection.
+```java
+@Service
+public class MyOtherService {
+    private MyService myService;
+
+    @Autowired
+    public MyOtherService(MyService myService) {
+        this.myService = myService;
+    }
+}
+```
+In this case, `@Service` is another specialization of `@Component`, commonly used for service classes.
+
+Bottom line :- To use @Component and related annotations effectively, ensure that component scanning is enabled in your Spring configuration, and your component classes are located in packages that are scanned. This approach simplifies the configuration and helps manage your application's beans and their dependencies efficiently.
+
+
+Q.11) Spring Boot Actuator??
+==> To enable Spring Boot Actuator in your Spring Boot application, you need to add the spring-boot-starter-actuator dependency to your project's build configuration. You can then configure and customize the various actuator features in your application's properties or configuration files.
+Spring Boot Actuator is a valuable addition to Spring Boot applications, especially in production environments, as it simplifies the process of monitoring and managing your application, making it easier to ensure its health and performance.
+Spring Boot Actuator is a set of production-ready features provided by the Spring Boot framework to help monitor and manage your application. It offers a wide range of tools and capabilities to gather runtime information about your application, which can be useful for various purposes, including monitoring, debugging, and operational support.
+Key features and capabilities of Spring Boot Actuator include:
+1.Health Checks: /health endpoint reports application health, customizable for component checks like databases or message queues.
+2.Application Information: /info endpoint provides metadata like version, build, or configuration data.
+3.Metrics: /actuator/metrics exposes performance metrics, including custom ones.
+4.Environment and Configuration: /actuator/env offers details on the application's environment and configuration.
+5.Thread Dump: /actuator/threaddump provides thread-level insights for performance diagnostics.
+6.Trace Information: /actuator/httptrace records and reveals details of HTTP interactions.
+7.Auditing: Enables recording of events like method invocations in your app.
+8.Custom Endpoints: Spring Boot Actuator allows you to create custom management endpoints. This is useful for exposing application-specific data or control features that can be accessed via HTTP.
+9.Security: The actuator endpoints are sensitive by default, so Spring Boot Actuator provides security mechanisms to protect these endpoints. You can use Spring Security to configure access rules and authentication for these endpoints.
+10.Integration with Monitoring Tools: Spring Boot Actuator is often used in conjunction with various monitoring and management tools, including Prometheus, Grafana, ELK (Elasticsearch, Logstash, Kibana), and others. These tools can collect, store, and visualize data from Actuator endpoints for comprehensive application monitoring.
+
+Q.12)difference between synchronization and serialization in java ?
+==>- **Synchronization**: Synchronization in Java is a mechanism to control access to shared resources by multiple threads, ensuring only one thread can access the resource at a time to prevent data inconsistencies and race conditions.
+
+- **Serialization**: Serialization is the process of converting an object into a byte stream, making it suitable for storage or transmission, and deserialization is the reverse process of recreating the object from the byte stream. It's often used for saving objects to files or sending them over networks.
+
+Q.13) Synchronus vs Ashynchronus in java??
+===>>  										
+  Synchronus: 
+  In synchronous execution, operations are performed one after the other in a sequential manner. When a function or method is called, the   program waits for it to complete before moving on to the next operation. If the function takes a long time to execute or gets blocked for any reason, the entire program will be blocked, and no other tasks can be executed until the current task completes.
+
+  Ashynchronus: 
+	In asynchronous execution, tasks are initiated and allowed to run independently without waiting for them to complete. When a function or method is called, the program continues executing the next operation without blocking. The result of the asynchronous operation might not be immediately available, but the program can continue processing other tasks in the meantime.
+	
+Summary : 
+Synchronous: Synchronous operations in Java are like standing in a queue; you wait for your turn, and the program blocks until the task is done.
+Asynchronous: Asynchronous operations in Java are like sending tasks to workers; you don't wait in line, and the program continues with other tasks while waiting for results.
+
+Q.14)ConcurrentModificationException ??
+==>> This exception is thrown when an object is modified concurrently while an iteration is being performed on it using an iterator. It typically occurs in collections like ArrayList or HashMap when multiple threads attempt to modify the collection concurrently without proper synchronization.
+
+Q.15)What is "fail-safe" and "fail-fast" in Java??
+==>
+Fail-Safe Iteration:
+Fail-safe iteration allows multiple threads to modify a collection concurrently while other threads are iterating over it without throwing any exceptions.
+Since the iteration is not performed on the original collection, any modifications made by other threads during the iteration won't be reflected in the iteration process.
+The key benefit of the fail-safe approach is that it doesn't throw ConcurrentModificationException when the collection is modified during the iteration.
+Fail-safe iterators are generally used in collections like ConcurrentHashMap and the CopyOnWriteArrayList, which are designed to handle concurrent modifications safely.
+
+Fail-Fast Iteration: 
+Fail-fast iteration, on the other hand, detects concurrent modifications during the iteration and immediately throws a ConcurrentModificationException to indicate that the collection has been structurally modified while being iterated.
+Fail-fast iterators are used in most standard Java collections like ArrayList, HashSet, HashMap, etc. These collections are not designed to be thread-safe for concurrent modifications during iteration, and thus, they throw ConcurrentModificationException to signal potential issues.
+
+Summary : 
+Fail-safe iteration makes a copy of the collection and iterates over the copy, so it doesn't throw ConcurrentModificationException and allows modifications during the iteration.
+Fail-fast iteration detects concurrent modifications during the iteration and immediately throws ConcurrentModificationException to ensure the collection's integrity.
+
+
+Q.16) How to Delete Duplicate Rows in SQL?
+==>>
+DELETE FROM your_table_name
+WHERE (column1, column2, ...) IN (
+  SELECT column1, column2, ...
+  FROM your_table_name
+  GROUP BY column1, column2, ...
+  HAVING COUNT(*) > 1
+);
+--->>
+
+Q17. Nth Highest salary??
+==>> 
+select min(salary) from   
+(select distinct salary from emp order by salary desc)   
+where rownum < 3;  
+  
+In order to calculate the second highest salary use rownum < 3  
+In order to calculate the third highest salary use rownum < 4  
+
+OR 
+
+SELECT *
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET (N - 1);
+
+In this query:
+We select all columns (*) from the "employee" table.
+We order the results in descending order of salary using ORDER BY salary DESC. This will list the employees with the highest salary at the top.
+We use the LIMIT and OFFSET clauses to select the Nth highest salary. The LIMIT 1 clause ensures we only retrieve one row, and the OFFSET (N - 1) skips the first N - 1 rows, effectively giving you the Nth highest salary.
+
+Q.18) Program java to find first & All non-repeating character of given String?
+==>  method 1:  
+class Main
+{
+    public static void main(String args[])
+    {
+        String inputStr ="prepinsta";
+		boolean flag =true;
+        
+        for(char i :inputStr.toCharArray())
+        {
+            //if first occurs position same as last occurs position that means only one occurence of character
+            if (inputStr.indexOf(i) == inputStr.lastIndexOf(i))
+            {
+                System.out.println("Non-repeating character is: "+ i);  
+				
+				//use below two statement only when you want just first non-repeating character 
+				flag = false;
+				break;
+            }
+        }        
+	    //use below two statement only when you want just first non-repeating character 
+        if(flag)
+            System.out.println("There is no non repeating character in input string");			
+    }
+}
+--->>
+Method 2 : 
+import java.util.*;
+public class Main {
+ public static void main(String[] args) {
+  String str1 = "gibblegabbler";
+  System.out.println("The given string is: " + str1);
+  for (int i = 0; i < str1.length(); i++) {
+   boolean unique = true;
+   for (int j = 0; j < str1.length(); j++) {
+    if (i != j && str1.charAt(i) == str1.charAt(j)) {
+     unique = false;
+     break;
+    }
+   }
+   if (unique) {
+    System.out.println("The first non repeated character in String is: " + str1.charAt(i));
+    break;
+   }
+  }
+ }
+}
+
+
+Q.19 )How the multiple thread stop execution??
+In a multithreaded program, threads can be stopped in several ways. It's important to note that stopping a thread should be done carefully to avoid potential issues like resource leaks, data corruption, and thread synchronization problems. Here are some common methods for stopping threads:
+1. **Thread Termination:**
+   This is the simplest way to stop a thread. You can call the thread's `stop()` method, which will abruptly terminate the thread's execution. However, this method is highly discouraged because it can leave the program in an inconsistent state. The `stop()` method is deprecated in Java and other languages for this reason.
+2. **Thread Interruption:**
+   Threads can be interrupted using the `interrupt()` method. When you call `interrupt()` on a thread, it sets a flag indicating that the thread should be interrupted. However, it's up to the thread itself to respond to this interruption. You can use methods like `isInterrupted()` or `Thread.interrupted()` to check if a thread has been interrupted, and then you can decide how to gracefully stop the thread.
+3. **Using Flags:**
+   You can create a boolean flag that the thread periodically checks. When the flag is set to true, the thread can gracefully exit its execution loop and terminate. This allows for more controlled termination compared to abrupt thread termination.
+   ```java
+   volatile boolean shouldStop = false;
+
+   public void run() {
+       while (!shouldStop) {
+           // Thread's work
+       }
+   }
+   public void stopThread() {
+       shouldStop = true;
+   }
+   ```
+4. **Cooperative Thread Termination:**
+   You can design your threads to be cooperative in their termination. Threads can communicate with each other and agree to stop based on certain conditions or events. This involves careful coordination between threads, using mechanisms like wait/notify in Java or condition variables in other languages.
+5. **Using Thread Pools:**
+   When working with thread pools, you can simply shut down the thread pool, which will stop all the threads it manages. This is a more high-level approach to managing thread termination in a pool of worker threads.
+6. **Using higher-level abstractions:**
+   In some programming languages or frameworks, you may have higher-level abstractions or libraries for managing concurrent tasks, which handle thread management for you. For instance, in Java, you can use the `ExecutorService` to manage thread execution and termination.
+The choice of method depends on the specific requirements of your application and the language or framework you are using. It's important to handle thread termination gracefully to ensure that resources are released, data is not corrupted, and other threads are not affected adversely.
+
+:::::::::::::::::::::::: Date : 17th-Oct-23 (Aaj sirf DBMS k question karta hu ):::::::::::::::::::::::::::::::::::::::::::
+
+Q.20 )Parent of Exception class??
+==> In Java, the `Exception` class is a subclass of the `Throwable` class, and `Throwable` is the parent class of both `Exception` and `Error`. Therefore, the inheritance hierarchy is as follows:
+- `Throwable` (Parent of both `Exception` and `Error`)
+  - `Exception`
+  - `Error`
+So, `Throwable` is the immediate parent of the `Exception` class in Java.
+
+Q.21 )how many types of exceptions are there in Java??
+==> two types , Checked and Unchecked
+
+Q.22 )Try catch finally block in Java??
+==> The try block encloses code that might throw exceptions.
+The catch block(s) handle exceptions if they are thrown, with each catch block dedicated to a specific exception type.
+The finally block contains code that always executes, whether an exception occurred or not. It is typically used for cleanup tasks.
+
+Q.23 )What is ClassNotFoundException is there??
+==>Class Not in Classpath: If the class you are trying to load is not present in the classpath, the JVM will throw a ClassNotFoundException. The classpath is a list of directories and JAR files where the JVM looks for classes.
+Typographical Errors: If there are typographical errors or inconsistencies in the class name, including the package name, it can lead to a ClassNotFoundException.
+Missing Dependency: If a class depends on another class that is not available at runtime, this can result in a ClassNotFoundException.
+-
+To resolve ClassNotFoundException, you should:
+Ensure that the class you are trying to load is available in the classpath.
+Verify that there are no typographical errors in the class name or package name.
+Make sure all dependencies required by the class are available.
+Properly managing the classpath and verifying the existence of classes and their dependencies will help prevent ClassNotFoundException errors in your Java applications.
+
+Q.24 )What are RuntimeExceptions are there??
+==> NullPointerException and ArithmeticException like number fomat
+Q.25 )Functional Interface??
+Q.26 )Stream Api??
+Q.27 )Diffrence between Java8 vs Java17 or Java11??
+==========================================================================================================
+
+
+
+#==> Birlasoft
+-----------------------------------------------------------------------------------------------------------
+Q.28 ) Features of Java8 
+Q.29 ) diffrent methods used in Stream like filter , Map , collection??
+Q.30 ) Use of default and static method in Interface in java8
+Q.31 ) Diffrence btw Abstraction and Interface related to Java8
+Q.32 ) Internal working of Hashmap ?
+Q.33 ) What extra features added in Hashmap in Java8
+Q.32 )  Can we write code without ORM tool only with Hibernate?
+Q.33 ) @Qualifier annotation full process
+Q.34 ) Microservices Architeacture
+Q.35 ) Spring Security 
+Q.36 ) Programm in java to shifting elements in Array nth shifting
+ ----->>>                       <<-----
+import java.util.Arrays;
+
+public class ArrayShift {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
+        int shiftBy = 2;
+
+        System.out.println("Original Array: " + Arrays.toString(arr));
+        
+        shiftArray(arr, shiftBy);
+
+        System.out.println("Shifted Array: " + Arrays.toString(arr));
+    }
+
+    public static void shiftArray(int[] arr, int n) {
+        int length = arr.length;
+        int[] temp = new int[length];
+
+        for (int i = 0; i < length; i++) {
+            temp[(i + n) % length] = arr[i];
+        }
+
+        System.arraycopy(temp, 0, arr, 0, length);
+    }
+}
+=============================================================================================================
+
+
+#==> Tab Brillio
+-----------------------------------------------------------------------------------------------------------
+Java->
+Q.37 )Basic functions of Stream
+Q.38 )Map,collect , Collector , Filter methods in Stream Api
+Q.39 )ClassLoader()
+Q.40 ) put() , post() diff
+Q.41 ) in postman pass null value than what will happend and how to do
+Q.42 ) path vs ClassPath
+
+Spring Boot->
+
+Q.43 )How to map one to many in JPA
+Q.44 ) Controller vs RestController
+Q.45 )Transaction and how to do
+Q.46 )how to read file from application.properties
+Q.47 ) for saving data in Repository what methos is there // also for Get
+Q.48 )See all structure i.e End to End in Sprin goot CRUD operation
+
+Q.49 )How to connect two database in spring boot ?
+==>>> 
+1. Define Configuration Properties:  In Application.properties and Yml file define properties for each database, including the       URL,username, password, and any other required configuration.
+2. Create Configuration Classes:  Create separate configuration classes for each database. In each configuration class, use the @Configuration annotation and define a DataSource bean using the properties you've defined for that database.
+3. Use the Databases in our Code:  In your services or repositories, you can specify which data source to use by qualifying the DataSource bean using the @Qualifier annotation.
+
+Also 
+
+Interviewer Follow-up Question: "Why might you need to connect to multiple databases in an application?"
+
+Your Answer--->>>
+
+Connecting to multiple databases can be useful in scenarios where you need to work with different types of data sources. For example:
+
+Data Migration: You might need to migrate data from one database to another during a transition phase or system upgrade.
+
+Microservices: Different microservices might use different databases based on their requirements, and you'd need to connect to each service's database.
+
+Reporting and Analytics: You might have a transactional database for day-to-day operations and a separate database optimized for reporting and analytics.
+
+
+
+Q.50 )How can we exclude one class from Auto Configuration ?
+
+--->>> @SpringBootApplication(exclude = MyAutoConfiguration.class)
+
+=============================================================================================================
+
+#==> Tech Mahindra
+-----------------------------------------------------------------------------------------------------------
+Q.51 )Circuit Breaker in Microservices
+Q.52 )All Spring boot Controller class and services class formate
+Q.53 )exception Handling 
+Q.54 )ConcurrentModificationException
+Q.55 )Dependency Injuction
+Q.56 )Java 8 features
+Q.57 )OOps Concept
+Q.58 )Internal Working of HashMap
+Q.59 )Marker Interface
+Q.60 )What is Serilization
+Q.61 )Finally Block
+Q.62 )Is there Any way where Finally will not Execute
+Q.63 )Bean Scopes 
+==========================================================================================================
+
+
+#==> Again Birlasoft and Incido
+-----------------------------------------------------------------------------------------------------------
+Java->
+Q.64 )Polimorphism
+Q.65 )Compile Time and runtime Polimorphism
+Q.66 )Abstraction and real work
+Q.67 )Java 8 All features
+Q.68 )Marker Interface
+Q.69 )Serialization vs DeSerilization
+Q.70 )optional class
+Q.71 )Stream Api
+Q.72 )Arraylist vs LinkedList
+Q.73 )HashMap working or it is Synchronized or not
+Q.74 )ConcurrentHashMap
+Q.75 )Custom Exception 
+
+Spring Boot->
+Q.76 )@Requestmapping
+Q.77 )DI
+Q.78 )How to Connect with Databases
+Q.79 )How to error Handling in Spring Boot
+Q.80 )How to test private class in Junit
+Q.81 )About JPA
+Q.82 )save vs saveAll
+
+Microservices->
+Q.83 )Microservices vs Monolethic Architecture
+Q.84 )How the services Communicate with Each other
+Q.85 )In one srvices fails than what
+Q.86 )What dependency will requirs for Register the Services in Ureka Server
+Q.87 )what is Circuit Breaker
+
+==========================================================================================================
+
+
+#==> Saturday Interview Capgemini , Cognizant , Incedo , Infosys
+-----------------------------------------------------------------------------------------------------------
+Spring Boot 
+Q.88 )IOC 
+Q.89 )DI
+Q.90 )How to Call External API or SOAP API in Spring Boot
+Q.91 )How to Configure Multiple Database in Spring Boot
+Q.92 )Spring Boot Profiles
+Q.93 )In our project what are the Security features are there 
+Q.94 )Postman error codes like 400 , 200 , 500 and when they come
+Q.95 )How to change default Server in Spring boot
+Q.96 )flow of data from JPA to Database
+Q.97 )all end to end Architecture in Spring Boot
+Q.98 )About Repository CRUD operations
+Q.99 )if we hit Https and response will come in later than how we can manage\
+Q.100 )How to pass Hater from Postman
+Q.101 )Patch()
+
+Microservices
+Q.102 ) diff b/w Monolethic and Microservices architecture
+Q.103 ) Circuit breaker
+Q.104 ) if one services fails than how manage
+Q.105 ) Basic End to End Flow
+
+Java
+Q.106 ) HashMap vs HashTable
+Q.107 ) NullPointerException i.e Optional Class
+Q.108 ) Java 8 basic Program
+Q.109 ) Internal working of HashMap
+Q.110 ) List vs Set
+Q.111 ) OPPs Concept
+Q.112 ) See Basic on Multithreading
+Q.113 ) See all Basic Programming
+
+==========================================================================================================
+
+#==> BirlaSoft Second Round
+-----------------------------------------------------------------------------------------------------------
+Java-> 
+Q.114 ) Version
+Q.115 ) Diff Java7 vs Java8
+Q.116 ) Methods in Stream Api
+
+Spring Boot->
+Q.117 ) Spring Boot version
+Q.118 ) why need of version
+Q.119 ) default server
+Q.120 ) How to change version
+Q.121 ) Flow of Spring Boot
+Q.122 ) How to Add Plugins in Spring Boot
+Q.123 ) Diff between XML vs Annotations based Spring   
+
+Rest API->
+Q.124 ) What Server use
+Q.125 ) How to connect with backend
+
+==========================================================================================================
+
+
+#==> Capgemini L2 Round
+-----------------------------------------------------------------------------------------------------------
+Q.126 ) Architecture of your project
+Q.127 ) Which Design Patter used in Project
+
+Q.128 ) Sql query synchronus vs Asyn Queries
+==> 
+Synchronous Queries:
+1.Blocking Execution:
+   - Synchronous queries block the application's execution until the query is completed.
+   SELECT * FROM Customers;
+2.Predictable Flow:
+   - Code execution follows a linear, step-by-step model, making it easier to understand and debug.
+   INSERT INTO Orders (CustomerID, ProductID) VALUES (123, 456);
+3.Wait for Completion:
+   - The application waits for the query to finish before continuing with other tasks.
+   
+Asynchronous Queries:
+1.Non-Blocking Execution:
+   - Asynchronous queries allow the application to continue executing other tasks while waiting for the query to complete.
+   -- Using JavaScript with Node.js and a promise-based library like pg-promise
+   db.query('SELECT * FROM Customers')
+       .then(result => {
+           // Handle the result
+       })
+       .catch(error => {
+           // Handle errors
+       });
+2. Concurrency and Responsivenes:
+   - Asynchronous queries are beneficial for applications requiring concurrency and responsiveness, as they don't block the application's main thread.
+   -- Using Python with the `asyncio` library and an async database driver
+   async with create_pool() as pool:
+       async with pool.acquire() as connection:
+           result = await connection.execute('SELECT * FROM Customers')
+           # Handle the result asynchronously
+3. **Complex Handling:**
+   - Handling asynchronous queries can be more complex, often involving callbacks, promises, or event-driven programming.
+
+Q.129 ) How to pass validation from PostMan
+Q.130 ) About Frequently Company Change
+
+==========================================================================================================
+
+
+#==> Cognizant wed 23rd August
+-----------------------------------------------------------------------------------------------------------
+   
+Q.131 ) Architecture of your project
+Q.132 ) Functional Interface  and Some preDefined Functional Interfaces
+Q.133 ) Why new Java version Required
+Q.134 ) In which Project Spring and Spring Boot used
+Q.135 ) Features of Spring Boot
+Q.136 ) Methods in Repository
+Q.137 ) @Transactional Annotation use
+Q.138 ) Day to Day Activity
+Q.139 ) Test Cases and SonarLint
+Q.140 ) Agile Methedology
+Q.141 ) In which Domain u have worked till now?
+Q.142 ) Have you worked on Some Leadership Positions?
+
+==========================================================================================================
+
+#==> LTIMindtree
+-----------------------------------------------------------------------------------------------------------
+Q.143 ) what is transient in java ??
+Q.144 ) Can we override Main methods in java?? -->> We can Overload main method but not Override main method 
+Q.145 ) Actuators in Spring Boot??
+
+Q.146 ) View in Sql??
+==> In SQL, a view is a virtual table that is based on the result of a SELECT query. A view allows you to simplify complex queries, provide a layer of abstraction over the underlying tables, and restrict access to specific columns or rows of data. Views do not store data themselves; they are stored queries that are executed when you query the view.
+Certainly, here are the benefits of using views in SQL in short points:
+1.Simplicity:Views simplify complex queries by encapsulating query logic.
+2.Security: Views can restrict access to specific columns or rows, enhancing data security.
+3.Abstraction: Views provide a layer of abstraction over underlying tables, shielding users from table changes.
+4.Performance: Views can improve performance by pre-computing and storing query results.
+5.Consistency: Views maintain a consistent interface to data, even if the physical data storage evolves.
+6.Code Reusability: Views can be used in multiple queries, promoting code reusability.
+
+Q.147 ) hashMap itreration with Iterator Method?
+Q.148 ) WAP to print repeated city name from list of City String?
+Q.149 ) How two services are communicationg with each other??
+
+==========================================================================================================
+
+
+#==> Publicis Sapient
+-----------------------------------------------------------------------------------------------------------
+Q.150 ) explain about the Projects in current company and previous company details
+Q.151 ) OOps concepts 
+Q.152 ) Abstraction with Real example
+Q.153 ) Stream Api Methods
+Q.154) Sort elements using Stream Api 
+Q.155 ) Exception handling
+Q.156 ) Syncronious vs non Synchronus 
+Q.157 ) Hashmap working
+Q.158 ) HashMap vs hashTable related to thread safe 
+Q.159 ) List vs set
+Q.160 ) Array vs List
+Q.161 ) Concurrancy exceptions
+Q.162 ) Production Support 
+Q.163 ) How to priority Bug 
+
+Q.164 ) Joins
+==>
+
+Q.165 ) Second Highest Salary Sql query
+==>
+
+==========================================================================================================
+
+
+#==> SILDIA
+-----------------------------------------------------------------------------------------------------------
+Q.166 ) explain about the project you have done in your previous company in detail
+Q.167 ) Spring security and how we can implement it in our project
+Q.168 ) what does @Cross-origin do
+Q.169 ) Difference in stringbuider and stringbuffer
+Q.170 ) How can you configure the properties of your application
+Q.171 ) what is keycloak and how does it work and why should we use it in our project
+Q.172 ) How to connect your application with database
+Q.173 ) What is stream api with filter and map ? give a proper example with explaination
+Q.174 ) Why should we use elasticsearch(ELK)?    
+
+
+
+   
+
+
+
+

@@ -1,0 +1,339 @@
+1. **What is Polymorphism?**
+   - Polymorphism is a principle in object-oriented programming that allows objects of different types to be treated as objects of a common type. It enables a single interface to represent different underlying forms (data types or classes) and is categorized into compile-time (method overloading) and runtime (method overriding) polymorphism.
+
+2. **Explain garbage collection.**
+   - Garbage Collection is the automatic process by which Java's runtime system manages the memory used by the program. It identifies and frees up memory occupied by objects that are no longer reachable or in use by the program. This helps prevent memory leaks and improves the efficiency of memory utilization.
+
+3. **What is an immutable object?**
+   - An immutable object is an object whose state cannot be changed once it is created. In Java, String and wrapper classes like Integer and Double are examples of immutable objects. Immutable objects provide benefits like thread safety, ease of caching, and simplified debugging.
+
+4. **How is this() and super() used with constructors?**
+   - `this()` is used to invoke the current class's constructor, and `super()` is used to invoke the constructor of the superclass. They must be the first statement in a constructor, and you can use them to call another constructor within the same class (`this()`) or the superclass (`super()`).
+
+5. **What are Access Specifiers available in Java?**
+   - Access specifiers control the visibility of classes, methods, and fields in Java. The main ones are:
+     - **Public:** Accessible from anywhere.
+     - **Protected:** Accessible within the same package and subclasses.
+     - **Default (Package-Private):** Accessible only within the same package.
+     - **Private:** Accessible only within the same class.
+
+6. **What is Constructor?**
+   - A constructor is a special method in a class that is used to initialize objects. It has the same name as the class and is called automatically when an object is created. Constructors can take parameters, allowing for different ways to initialize objects.
+
+7. **What are the List interface and its main implementation?**
+   - The `List` interface in Java represents an ordered collection and allows duplicate elements. The main implementations are:
+     - **ArrayList:** Resizable array implementation.
+     - **LinkedList:** Doubly-linked list implementation.
+     - **Vector:** Similar to ArrayList but synchronized.
+
+8. **Explain the user-defined Exceptions.**
+   - User-defined exceptions are exceptions created by the programmer to handle specific error conditions in a program. They are subclasses of the `Exception` class and provide more context about the type of error that occurred.
+
+9. **Describe the life cycle of the thread.**
+   - The life cycle of a thread in Java consists of several states: New, Runnable, Blocked, Waiting, Timed Waiting, and Terminated. A thread transitions between these states as it is created, started, paused, resumed, and terminated.
+
+10. **What is an Applet?**
+    - An applet is a small Java program that is embedded within an HTML page and is typically executed in a web browser. Applets were used for creating interactive web content but have become less common due to security concerns and the rise of other web technologies.
+
+11. **What is the Set interface?**
+    - The `Set` interface in Java represents an unordered collection of unique elements. It does not allow duplicate elements. Implementations include `HashSet`, `TreeSet`, and `LinkedHashSet`.
+
+12. **What is a HashSet and TreeSet?**
+    - **HashSet:** Implements the Set interface using a hash table. It does not guarantee the order of elements.
+    - **TreeSet:** Implements the Set interface using a sorted tree structure (Red-Black tree). It maintains elements in sorted order.
+
+13. **How do you decide when to use HashMap and when to use TreeMap, and what is the difference between these two?**
+    - Use `HashMap` when order doesn't matter, and quick access to elements is required.
+    - Use `TreeMap` when elements need to be sorted. It maintains elements in sorted order based on the natural order or a specified comparator.
+
+14. **What is the Comparable interface?**
+    - The `Comparable` interface in Java is used to define the natural ordering of objects. Objects that implement this interface can be compared and sorted using the `compareTo()` method.
+
+15. **When should I use abstract classes and when should I use interfaces?**
+    - Use abstract classes when you want to provide a common base class with some shared implementation.
+    - Use interfaces when you want to define a contract that multiple classes can implement. Java supports multiple interface inheritance but only single class inheritance.
+
+16. **Explain the Polymorphism principle.**
+    - Polymorphism allows objects of different types to be treated as objects of a common type. It is achieved through method overloading and method overriding. Method overloading enables a class to have multiple methods with the same name but different parameters, while method overriding allows a subclass to provide a specific implementation of a method defined in its superclass.
+
+17. **What are the differences between throw and throws?**
+    - `throw`: Used to explicitly throw an exception within a method.
+    - `throws`: Used in the method signature to declare that a method might throw one or more exceptions. It is a way of signaling that the method must be handled for exceptions that might be thrown during its execution.
+
+18. **What is the difference between preemptive scheduling and time slicing?**
+    - **Preemptive Scheduling:** The operating system can interrupt a currently running process and start or resume another.
+    - **Time Slicing:** A form of preemptive scheduling where each process is assigned a fixed time slot or quantum to execute before the next process is given a chance.
+
+19. **Explain traversing through a collector using Iterator.**
+    - An `Iterator` in Java provides a way to traverse elements in a collection. It has methods like `hasNext()` to check if there are more elements and `next()` to retrieve the next element. It allows sequential access to the elements of a collection.
+
+20. **What are the principal concepts of OOPS?**
+    - The principal concepts of Object-Oriented Programming (OOPS) are:
+      - Encapsulation
+      - Inheritance
+      - Polymorphism
+      - Abstraction
+
+21. **What are the basic features of java?**
+    - Basic features of Java include:
+      - Simple and easy-to-learn syntax
+      - Platform independence (Write Once, Run Anywhere - WORA)
+      - Object-oriented programming
+      - Robust memory management (Garbage Collection)
+      - Multi-threading support
+
+22. **How Java becomes object-oriented?**
+    - Java follows the principles of object-oriented programming (OOP), including encapsulation, inheritance, polymorphism, and abstraction. Everything in Java is treated as an object, and programs are designed around the concept of objects and classes.
+
+23. **How does Java become robust?**
+    - Java achieves robustness through features like:
+      - Automatic memory management (Garbage Collection)
+      - Exception handling
+      - Strong type-checking during compile time
+      - Elimination of pointers and manual memory management
+
+24. **How does a Java program compile?**
+    - A Java program is first written in a text editor. The source code is then compiled using the Java compiler (`javac`), which translates the code into bytecode. The bytecode is platform-independent and can be executed on any device that has the Java Virtual Machine (JVM) installed.
+
+25. **What is 'public static void main ( String args[ ] ) ' signifies?**
+    - This is the signature of the main method in Java. It indicates that the method is public, static, returns void, and takes a String array (`args`) as its parameter. The `main` method is the entry point of a Java program and is called when the program is executed.
+
+26. **What 'System.out.println()' signifies?**
+    - `System.out.println()` is a Java statement used to print output to the console. It sends the string or value inside the parentheses to the standard output (usually the console) followed by a newline. It is commonly used for debugging and displaying information during program execution.
+
+27. **What is a variable in Java program?**
+    - A variable in a Java program is a named storage location that holds data, and its value can be changed during the program's execution. Variables have a data type (int, double, String, etc.) that determines the type of data they can store.
+
+28. **What is JVM, JDK, JRE?**
+    - - **JVM (Java Virtual Machine):** It is a virtual machine that enables Java programs to run on any device by interpreting Java bytecode.
+      - **JDK (Java Development Kit):** It is a software development kit that provides tools, libraries, and executables for developing, compiling, and running Java programs.
+      - **JRE (Java Runtime Environment):** It is an environment that provides the necessary runtime libraries for executing Java applications.
+
+29. **What is bytecode?**
+    - Bytecode is an intermediate representation of a Java program that is platform-independent. It is generated by the Java compiler and can be executed by the Java Virtual Machine (JVM) on any device, making Java a portable language.
+
+30. **What is Java applet?**
+    - A Java applet is a small application designed to be executed within a web browser. Applets were commonly used to provide interactive content on web pages, but their usage has declined due to security concerns and the advent of other web technologies.
+
+31. **What is set and how it's working?**
+    - A set in Java is a collection of unique elements. It does not allow duplicate elements, and it is not indexed. The common implementations include `HashSet`, `TreeSet`, and `LinkedHashSet`. Sets use hashing or sorting mechanisms to ensure uniqueness.
+
+32. **How HashMap is working?**
+    - `HashMap` in Java is a data structure that implements the Map interface. It uses hashing to store key-value pairs. The keys are hashed, and the resulting hash code is used to determine the index where the key-value pair will be stored. `HashMap` allows quick retrieval of values based on their keys.
+
+33. **What is the difference between Comparator and Comparable?**
+    - **Comparable:** It is an interface in Java used to define the natural ordering of objects. The class of objects implements the `Comparable` interface and overrides the `compareTo()` method.
+      - **Comparator:** It is an interface used for custom sorting. It allows the implementation of multiple ways of sorting objects by providing a separate class that implements the `Comparator` interface and overrides the `compare()` method.
+
+34. **List vs Array and internal working?**
+    - **List:** It is an interface in Java that extends the Collection interface. It represents an ordered collection of elements that allows duplicate entries. Common implementations are `ArrayList` and `LinkedList`.
+      - **Array:** It is a fixed-size, sequential collection of elements of the same type. Arrays in Java are indexed, and their size cannot be changed once they are created.
+
+35. **Linked List vs Array List and its difference?**
+    - **Linked List:** It is a data structure where elements are stored in nodes, and each node contains a reference to the next node in the sequence. It provides dynamic memory allocation but slower random access.
+      - **Array List:** It is an implementation of the List interface using a resizable array. It allows fast random access but may be slower when elements are inserted or removed in the middle.
+
+36. **HashTable vs HashMap?**
+    - **HashTable:** It is a legacy class in Java that is synchronized, making it thread-safe. It does not allow null keys or values.
+      - **HashMap:** It is a newer class that is not synchronized by default, providing better performance in a single-threaded environment. It allows null keys and values.
+
+37. **Can we Override the main method? How?**
+    - Yes, we can override the `main` method in Java, but it will not be the entry point of the program. To override the `main` method, create a new method with the same signature in a class that extends another class or implements an interface.
+
+38. **In which situation finally block will not execute?**
+    - The `finally` block may not execute in situations where the program exits abruptly, such as when the JVM is shut down forcibly using `System.exit()` or in case of a system crash.
+
+39. **final vs finally vs finalize?**
+    - **final:** It is a keyword used to declare a constant variable, a method that cannot be overridden, or a class that cannot be extended.
+      - **finally:** It is a block used in exception handling to ensure a piece of code is executed, whether an exception is thrown or not.
+      - **finalize:** It is a method in the `Object` class that is called by the garbage collector before reclaiming an object's memory. It can be overridden to provide custom cleanup logic.
+
+40. **What is static keyword and block and where we should use?**
+    - The `static` keyword in Java is used to create class-level variables and methods that are shared among all instances of the class. A static block is a block of code enclosed in curly braces and preceded by the `static` keyword. It is executed when the class is loaded into the memory. Static members are used when a value needs to be shared among all instances of a class.
+
+41. **Type of typeCasting? Can we typecast a boolean to char?**
+    - Typecasting in Java can be of two types: Implicit (automatic) and Explicit (manual). No, you cannot directly typecast a boolean to a char, as they are not compatible types.
+
+42. **Default value of int, string, double,..,... (all datatypes)?**
+    - - **int:** 0
+      - **String:** null
+      - **double:** 0.0
+      - **boolean:** false
+      - **char:** '\u0000' (null character)
+      - **float:** 0.0f
+      - **long:** 0L
+      - **short:** 0
+      - **byte:** 0
+
+43. **In which scenario we should use array and ArrayList? Why not should use ArrayList over array?**
+    - Use an array when the size is fixed or known, and you need direct access to elements. Use `ArrayList` when the size can change dynamically, and you require additional functionalities like resizing, adding, or removing elements. `ArrayList` should not be used over an array when memory is a concern, or there is a need for primitive types.
+
+44. **What is String and substring() and how does it work internally? In which case should we use a character array over the String?**
+   - **Answer:** 
+     - In Java, a `String` is an immutable sequence of characters. The `substring()` method is used to extract a portion of a String. Internally, the `String` class uses a character array to store the sequence of characters. It is advisable to use a character array over a String when you need mutability and frequent modifications to the content, as strings are immutable.
+
+45. **Encapsulation vs Abstraction**
+   - **Answer:**
+     - **Encapsulation** is the concept of bundling the data (attributes) and methods (functions) that operate on the data into a single unit, known as a class. It helps in restricting access to certain components of the object.
+     - **Abstraction** is the process of hiding the complex implementation details and showing only the essential features of an object. It involves creating abstract classes and interfaces.
+
+46. **If we can access private members using the setter and getter method, why should we make members private?**
+   - **Answer:**
+     - Encapsulation in Java involves making the members of a class private to hide the internal details and provide controlled access. Even though getter and setter methods allow access to private members, it enforces a controlled way of interacting with the class, maintaining encapsulation and ensuring data integrity.
+
+47. **How to Make a Class Immutable?**
+   - **Answer:**
+     - To make a class immutable in Java:
+       - Declare the class as `final` to prevent it from being extended.
+       - Make all fields `private` and `final`.
+       - Provide a public constructor to initialize all the fields.
+       - Avoid providing setter methods.
+       - If mutable objects are used within the class, return defensive copies to prevent external modifications.
+
+48. **How to create multi-threaded Applications?**
+   - **Answer:**
+     - To create multi-threaded applications in Java:
+       - Extend the `Thread` class or implement the `Runnable` interface.
+       - Override the `run()` method with the code to be executed by the thread.
+       - Create an instance of the thread and start it using the `start()` method.
+       - Alternatively, use the `ExecutorService` framework or the `Thread` class to manage threads.
+
+49. **How to handle the situation when the thread crashes (auto-recovery feature)?**
+   - **Answer:**
+     - To handle thread crashes and provide an auto-recovery feature:
+       - Implement proper exception handling within the `run()` method.
+       - Use `try-catch` blocks to catch exceptions and take appropriate actions.
+       - Optionally, use tools like `UncaughtExceptionHandler` to capture unhandled exceptions and implement custom recovery mechanisms.
+
+50. **Can we have multiple catch blocks? Can we have a nested try-catch block?**
+   - **Answer:**
+     - Yes, Java allows multiple `catch` blocks to handle different types of exceptions. Each `catch` block is evaluated in order, and the first one that matches the exception type is executed.
+     - Yes, Java supports nested `try-catch` blocks, where a try block is placed inside another try block. This allows for more granular exception handling within specific code blocks.
+
+51. **When to use an interface and when an abstract class? Can we define a method in the interface?**
+   - **Answer:**
+     - Use an **interface** when:
+       - You want to achieve multiple inheritances.
+       - You want to provide a contract without any implementation.
+     - Use an **abstract class** when:
+       - You want to provide a common base class with some shared implementation.
+     - Yes, starting from Java 8, interfaces can have default and static methods with implementations.
+
+52. **Explain Java 8 feature**
+   - **Answer:**
+     - Java 8 introduced several features, including lambdas, the Stream API, default methods in interfaces, the `java.time` package for date and time, the `Optional` class for handling null values, and the `CompletableFuture` class for asynchronous programming.
+
+53. **What is the Stream API? Find the maximum even (1,2,3,4,5,6) elements using the Stream API.**
+   - **Answer:**
+     - The Stream API is a powerful and functional way to process sequences of elements in Java. To find the maximum even element:
+       ```java
+       int maxEven = Arrays.stream(new int[]{1, 2, 3, 4, 5, 6})
+                           .filter(n -> n % 2 == 0)
+                           .max()
+                           .orElse(0);
+       ```
+
+54. **What is a functional interface, and what is the use of a functional interface?**
+   - **Answer:**
+     - A **functional interface** is an interface with a single abstract method (SAM). The main use is to enable functional programming in Java. Functional interfaces can be used with lambda expressions, method references, and the Stream API.
+
+55. **What is Optional in Java 8?**
+   - **Answer:**
+     - The `Optional` class in Java 8 is used to represent an optional value, which may or may not be present. It helps in handling scenarios where a method might not return a value or could return `null`. `Optional` provides methods for safe retrieval and processing of values.
+
+56. **How to ensure that a data packet is received when sent by the rest API?**
+   - **Answer:**
+     - To ensure reliable delivery of data packets in a REST API:
+       - Use HTTPS to secure communication.
+       - Implement retries with exponential backoff in case of failures.
+       - Use acknowledgment mechanisms in the application layer.
+       - Consider idempotent operations to handle repeated requests.
+
+57. **What is serialization or Deserialization?**
+   - **Answer:**
+     - Serialization in Java is the process of converting an object into a byte stream to persist or transmit it. The `Serializable` interface is a marker interface that indicates a class is serializable. Deserialization is the reverse process of reconstructing the object from the byte stream.
+
+58. **Sort a class based on age; if age is the same, then name; if the name is also the same, then based on salary.**
+   - **Answer:**
+     - To achieve this, the class should implement the `Comparable` interface and override the `compareTo` method, considering age, name, and salary in the comparison.
+
+59. **ArrayList vs LinkedList**
+   - **Answer:**
+     - **ArrayList:**
+       - Backed by a dynamic array.
+       - Provides fast random access but slower insertion and deletion.
+     - **LinkedList:**
+       - Backed by a doubly-linked list.
+       - Provides fast insertion and deletion but slower random access.
+
+60. **TreeSet vs TreeMap**
+   - **Answer:**
+     - **TreeSet:**
+       - Implements the `Set` interface using a sorted tree structure.
+       - Maintains elements in sorted order.
+     - **TreeMap:**
+       - Implements the `Map` interface using a sorted tree structure.
+       - Maintains key-value pairs in sorted order based on keys.
+
+61. **Hashmap vs HashSet**
+   - **Answer:**
+     - **HashMap:**
+       - Implements the `Map` interface using a hash table.
+       - Stores key-value pairs, allowing fast retrieval based on keys.
+     - **HashSet:**
+       - Implements the `Set` interface using a hash table.
+       - Stores unique elements, allowing fast membership checks.
+
+62. **HashMap internal working**
+   - **Answer:**
+     - HashMap uses a hash table for internal storage. It calculates the hash code of keys to determine the index where the key-value pair will be stored. In case of hash collisions, a linked list or a tree (in Java 8+) is used to store multiple entries at the same index.
+
+63. **Heap vs Stack**
+   - **Answer:**
+     - **Heap:**
+       - Used for dynamic memory allocation.
+       - Objects and variables are stored in the heap.
+     - **Stack:**
+       - Used for static memory allocation.
+       - Stores method calls, local variables, and control flow data.
+
+64. **Interface vs abstract**
+   - **Answer:**
+     - **Interface:**
+       - Supports multiple inheritance.
+       - All methods are implicitly abstract.
+       - Can have default and static methods (Java 8+).
+     - **Abstract Class:**
+       - Supports single inheritance.
+       - Can have both abstract and concrete methods.
+       - Allows constructors and instance variables.
+
+65. **Serialization vs deserialization**
+   - **Answer:**
+     - **Serialization:**
+       - Converts an object into a byte stream for persistence or transmission.
+       - Achieved using the `ObjectOutputStream` class.
+     - **Deserialization:**
+       - Reconstructs an object from a byte stream.
+       - Achieved using the `ObjectInputStream` class.
+
+66. **Java 8 features?**
+   - **Answer:**
+     - Java 8 introduced features like lambdas, the Stream API, default methods in interfaces, the `java.time` package for date and time, the `Optional` class for handling null values, and the `CompletableFuture` class for asynchronous programming.
+
+67. **JVM Architecture?**
+   - **Answer:**
+     - The Java Virtual Machine (JVM) consists of the class loader subsystem, runtime data areas (heap, stack, method area), execution engine, native interface, and a set of native libraries. It executes Java bytecode and provides platform independence.
+
+68. **Implement Thread Pool**
+   - **Answer:**
+     - Implementing a thread pool involves creating a pool of worker threads and a queue to hold tasks. The `ExecutorService` framework in Java provides a convenient way to manage a thread pool.
+
+69. **Implement your own HashMap**
+   - **Answer:**
+     - Implementing a basic version of a HashMap involves creating an array to store key-value pairs, designing a hash function to determine indices, handling collisions, and providing methods for insertion, retrieval, and removal. A linked list or tree can be used to handle collisions.
+
+70. **Can a try block without catch?**
+   - **Answer:**
+     - Yes, a try block in Java can exist without a corresponding catch block, but it must be followed by either a catch block or a finally block. The catch block is used to handle exceptions that might be thrown within the try block, while the finally block is used for code that should be executed regardless of whether an exception occurs or not.
+

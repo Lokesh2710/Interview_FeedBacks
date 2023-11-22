@@ -1,0 +1,53 @@
+http worb verb is normally used to retrive  a resource from an api
+=> GET
+-------------
+HTTP word used to delete a resource = > DELETE
+---------------
+from the below 4 options which is example code of code on demand ?
+1.downloading open source software 
+2.javaSropit on web page 
+3.AWS Lambda
+4.Sereveless
+=> Among the options you provided, "JavaScript on a web page" (option 2) is an example where code is often loaded on demand. This is commonly referred to as "code splitting" or "lazy loading" in the context of web development.
+
+Here's a brief explanation and example:
+
+JavaScript on Web Page:
+
+In web development, you might have a large JavaScript bundle that includes all the scripts needed for your application. However, for performance reasons, you may choose to load some scripts only when they are needed, rather than all at once.
+Note: "Serverless" (option 4) and "AWS Lambda" (option 3) typically involve deploying functions to the cloud, and the code is uploaded as a whole rather than being loaded on demand during runtime.
+-----------
+Which API metric best tracks overall response times ?
+1.Error Rate, 2. SLA , 3. Call Latency, 4.time to first hellow world
+=>
+The API metric that best tracks overall response times is **3. Call Latency.**
+
+**Call Latency** measures the time it takes for an API to respond to a request. It includes the time taken by the server to process the request and send back a response. Monitoring call latency gives you insights into the overall performance of your API, and it is a crucial metric for understanding how quickly your API can fulfill requests.
+
+The other metrics mentioned have different focuses:
+
+1. **Error Rate:** This metric tracks the percentage of requests that result in errors. While important, it doesn't directly measure the time it takes for successful requests to be processed.
+
+2. **SLA (Service Level Agreement):** SLA is a commitment regarding the level of service, including performance, that is expected. While it indirectly relates to response times, it is more of a contractual metric rather than a real-time measurement of response times.
+
+4. **Time to First Hello World:** This is a more specific metric that might be used during development or testing to measure how quickly a simple, basic response is received. It's not as comprehensive as overall call latency, which considers the entire request and response lifecycle.
+
+For a holistic view of your API's performance, monitoring call latency is key. It helps identify bottlenecks, measure the impact of changes, and ensure that your API meets the expectations in terms of response times.
+-----------
+Among the options provided (bash, PowerShell, SSH, curl), **curl** is the specific command-line tool designed for making HTTP requests, and it is commonly used for interacting with and exploring APIs. 
+=>
+- **curl (Client for URLs):**
+  - **Description:** curl is a command-line tool for making HTTP requests. It supports various protocols and is widely used for interacting with APIs.
+  - **Example:**
+    ```bash
+    curl https://api.example.com/users
+    ```
+
+While bash and PowerShell are general-purpose command-line shells, and SSH (Secure Shell) is a protocol for secure remote access, they are not specifically designed for making HTTP requests like curl. However, you can still use these shells to execute curl commands. If you're on Windows, PowerShell might be more convenient, while on Unix-like systems (including Linux and macOS), bash is commonly used.
+
+------
+Which is  an example of a private client for oAuth ?
+a single page app , a mobile app , a java app ,  a smart tv 
+=> 
+
+
